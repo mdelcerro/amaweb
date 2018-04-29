@@ -1349,7 +1349,7 @@
 	}
 
 	a {
-		color: #0090c5;
+		color: #ea5e42;
 		text-decoration: underline;
 	}
 
@@ -1475,7 +1475,7 @@
 		form input[type="password"]:focus,
 		form select:focus,
 		form textarea:focus {
-			border-color: #0090c5;
+			border-color: #ea5e42;
 		}
 
 	form input[type="text"],
@@ -1606,7 +1606,7 @@
 		-webkit-appearance: none;
 		position: relative;
 		display: inline-block;
-		background: #0090c5;
+		background: #ea5e42;
 		color: #fff;
 		text-decoration: none;
 		border-radius: 6px;
@@ -1633,7 +1633,7 @@
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
-			background: #10a0d5;
+			background: #ea5e42;
 		}
 
 		input[type="button"]:active,
@@ -1641,7 +1641,7 @@
 		input[type="reset"]:active,
 		button:active,
 		.button:active {
-			background: #20b0e5;
+			background: #ea5e42;
 		}
 
 		input[type="button"].alt,
