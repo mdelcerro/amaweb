@@ -9,6 +9,7 @@
 	<form action="" method="post">
 		<label>Nombre de usuario: </label><input type="text" name="userreg"><br /><br />
 		<label>Contraseña: </label><input type="password" name="pwreg"><br /><br />
+		<label>Repite la contraseña: </label><input type="password" name="pwregveri"><br /><br />
 		<input type="submit" name="registrar" value="Registrarme">
 	</form>
 	<?php
@@ -32,13 +33,19 @@
 				}
 				if($comprueba == 0)
 				{
-					$nom = $_POST['userreg'];
-					$pw = $_POST['pwreg'];
-					
-					$conexion->query("INSERT INTO usuarios (nom_usuario, password) VALUES ('$nom','$pw')");
-					mysqli_query($conexion,$sql);
-					
-					echo "Te has registrado correctamente.";
+					if($_POST['pwreg'] == $_POST['pwregveri'])
+					{
+						$nom = $_POST['userreg'];
+						$pw = $_POST['pwreg'];
+						$pw_encryp = password_hash($pw, PASSWORD_DEFAULT);
+
+						$conexion->query("INSERT INTO usuarios (nom_usuario, password) VALUES ('$nom','$pw_encryp')");
+						mysqli_query($conexion,$sql);
+
+						echo "Te has registrado correctamente.";
+					}else{
+						echo "Las contraseñas introducidas no coinciden.";
+					}
 				}else{
 					echo "El nombre introducido ya está en la base de datos, prueba con otro.";
 				}
