@@ -1,58 +1,86 @@
 <?php
-session_start();//crea una sesión para ser usada mediante una petición GET o POST, o pasado por una cookie y la sentencia include_once es la usaremos para incluir el archivo de conexión a la base de datos que creamos anteriormente.
-include "includes/conexion.php";
-<form action="" method="post" class="registro">
-<div><label>Usuario:</label>
-<input type="text" name="usuario"></div>
-<div><label>Clave:</label>
-<input type="password" name="password"></div>
-<div><label>Repetir Clave:</label>
-<input type="password" name="pwverifi"></div>
-<div>
-<input type="submit" name="enviar" value="Registrar"></div>
-</form>
-/*Creamos el formulario con el campo de Usuario que se llamara $_POST['usuario'] y 2 campos para la clave y uno mas para confirmar si escribió bien la clave, se llamaran $_POST['password'] y $_POST['pwverifi'] respectivamente, procedemos a escribir el codigo que procesara y validara lo que el usuario ingrese:*/
-if(isset($_POST['enviar']))//para saber si el botón registrar fue presionado.
-{
-    if($_POST['usuario'] == '' or $_POST['password'] == '' or $_POST['pwverifi'] == '')
-    {
-        echo 'Por favor llene todos los campos.';//Si los campos están vacíos muestra el siguiente mensaje, caso contrario sigue el siguiente codigo.
-    }
-    else
-    {
-        $sql = 'SELECT * FROM usuarios';
-        $rec = mysql_query($sql);
-        $verificar_usuario = 0;//Creamos la variable $verificar_usuario que empieza con el valor 0 y si la condición que verifica el usuario(abajo), entonces la variable toma el valor de 1 que quiere decir que ya existe ese nombre de usuario por lo tanto no se puede registrar
- 
-        while($result = mysql_fetch_object($rec))
-        {
-            if($result->usuario == $_POST['usuario']) //Esta condición verifica si ya existe el usuario
-            {
-                $verificar_usuario = 1;
-            }
-        }
- 
-        if($verificar_usuario == 0)
-        {
-            if($_POST['password'] == $_POST['pwverifi'])//Si los campos son iguales, continua el registro y caso contrario saldrá un mensaje de error.
-            {
-                $usuario = $_POST['usuario'];
-                $password = $_POST['password'];
-                $password_encryp = password_hash($password, PASSWORD_DEFAULT);
 
-                $sql = "INSERT INTO usuarios (nom_usuario,password) VALUES ('$usuario','$password_encryp')";//Se insertan los datos a la base de datos y el usuario ya fue registrado con exito.
-                mysql_query($sql);
- 
-                echo 'Usted se ha registrado correctamente.';
-            }
-            else
-            {
-                echo 'Las claves no son iguales, intente nuevamente.';
-            }
-        }
-        else
-        {
-            echo 'Este usuario ya ha sido registrado anteriormente.';
-        }
+include 'functions.php';
+
+//Llamamos a la función session-start para iniciar una nueva sesión
+session_start();
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Actividad 10</title>
+</head>
+<body>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+
+    Usuario: <input type="text" name="user" value=""><br>
+    Correo electrónico: <input type="text" name="email" value=""><br>
+    Contraseña: <input type="password" name="password" value=""><br>
+    <br><input type="submit" name="submit" value="Registrar">
+
+</form>
+</body>
+
+<?php
+
+$user = $email = $password = "";
+$userError = $emailError = $passwordError = "";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    $error = false;
+
+    if (empty($_POST["user"])) {
+        $userError = "<br><b style=\"color:red\">Introduce un usuario.</b><br />";
+        echo $userError;
+        $error = true;
+    } else {
+        $user = trim($_POST["user"]);
     }
-}?> 
+
+    if (empty($_POST["email"])) {
+        $emailError = "<br><b style=\"color:red\">Introduce una dirección de correo electrónico.</b><br />";
+        echo $emailError;
+        $error = true;
+    } else {
+        $email = trim($_POST["email"]);
+    }
+
+    if (empty($_POST["password"])) {
+        $passwordError = "<br><b style=\"color:red\">Introduce una contraseña.</b><br />";
+        echo $passwordError;
+        $error = true;
+    } else {
+        $password = trim($_POST["password"]);
+    }
+
+
+    if (!$error) {
+
+        $conn = connect();
+
+        // Ejecutar insert
+        $sql = "INSERT INTO `usuarios`(`usuario`, `email`, `password`) VALUES (?, ?, ?)";
+
+        // Vincular variables a una instrucción preparada como parámetros
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param('sss', $user, $email, $password);
+
+        if ($stmt->execute() === FALSE) {
+            die("<br><p style=\"color:red\">La inserción no se ha podido realizar: </p><br>" . $conn->error);
+        }
+        // Cerrar sentencia
+        $stmt->close();
+
+        // Cerrar conexión
+        $conn->close();
+
+    }
+}
+
+?>
+
+
