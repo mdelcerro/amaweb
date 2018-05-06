@@ -1,6 +1,7 @@
 <?php
-include "includes/conexion.php";
+include "functions.php";
 ?>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -20,16 +21,16 @@ include "includes/conexion.php";
 
 						<!-- Logo -->
 						<div id="logo">
-							<a href="index.html"><img src="images/logo.png" alt="logo"></a>
+							<a href="index.php"><img src="images/logo.png" alt="logo"></a>
 						</div>
 
 
 						<!-- Nav -->
 							<nav id="nav">
 								<ul>
-									<li class="current"><a href="index.html">Cómo funciona</a></li>
+									<li class="current"><a href="index.php">Cómo funciona</a></li>
 									<li><a href="registro.php">Registro</a></li>
-									<li><a href="no-sidebar.html">Inicia sesión</a></li>
+									<li><a href="acceso.php">Inicia sesión</a></li>
 								</ul>
 							</nav>
 
