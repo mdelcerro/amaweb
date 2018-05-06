@@ -3,17 +3,17 @@
 function connect() {
 
     $servername = "localhost";
-    $username = "id5508088_amaweb";
-    $password = "123456";
+    $username = "root";
+    $password = "";
     $schema = "id5508088_amaweb";
 
     /*
     //datos base de datos local
 
     $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $schema = "INPRL";
+    $username = "id5508088_amaweb";
+    $password = "123456";
+    $schema = "id5508088_amaweb";
     */
 
     // Conectar DB
@@ -34,7 +34,7 @@ function connect() {
 }
 
 function is_logged() {
-    return !empty($_SESSION['dni']);
+    return !empty($_SESSION['usuario']);
 }
 
 function validate_security() {
@@ -46,5 +46,5 @@ function validate_security() {
 }
 
 function get_logged() {
-    return $_SESSION['dni'];
+    return $_SESSION['usuario'];
 }
