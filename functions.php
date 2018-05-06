@@ -3,16 +3,16 @@
 function connect() {
 
     $servername = "localhost";
-    $username = "root";
-    $password = "";
+    $username = "id5508088_amaweb";
+    $password = "123456";
     $schema = "id5508088_amaweb";
 
     /*
     //datos base de datos local
 
     $servername = "localhost";
-    $username = "id5508088_amaweb";
-    $password = "123456";
+    $username = "root";
+    $password = "";
     $schema = "id5508088_amaweb";
     */
 
