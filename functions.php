@@ -1,43 +1,45 @@
 <?php
 
-function connect() {
-
-    $servername = "localhost";
-    $username = "id5508088_amaweb";
-    $password = "123456";
-    $schema = "id5508088_amaweb";
-
-    /*
-    //datos base de datos local
+function connect()
+{
 
     $servername = "localhost";
     $username = "root";
     $password = "";
     $schema = "id5508088_amaweb";
+
+    //datos base de datos local
+    /*
+        $servername = "localhost";
+        $username = "id5508088_amaweb";
+        $password = "123456";
+        $schema = "id5508088_amaweb";
     */
 
     // Conectar DB
     $conn = new mysqli($servername, $username, $password);
-    mysqli_set_charset($conn,"utf8");
+    mysqli_set_charset($conn, "utf8");
 
     // Comprobar conexión
     if ($conn->connect_error) {
         die("<p style=\"color:red\">Fallo de conexión: </p><br>" . $conn->connect_error);
     }
     // Seleccionar bd
-    $sql = "USE ".$schema;
+    $sql = "USE " . $schema;
     if ($conn->query($sql) === FALSE) {
-        die("<br><p style=\"color:red\">La BBDD ".$schema." no pudo ser seleccionada: </p><br>" . $conn->error);
+        die("<br><p style=\"color:red\">La BBDD " . $schema . " no pudo ser seleccionada: </p><br>" . $conn->error);
     }
 
     return $conn;
 }
 
-function is_logged() {
-    return !empty($_SESSION['usuario']);
+function is_logged()
+{
+    return !empty($_SESSION['user']);
 }
 
-function validate_security() {
+function validate_security()
+{
 
     if (!is_logged()) {
         header('Location: acceso.php');
@@ -45,6 +47,7 @@ function validate_security() {
     }
 }
 
-function get_logged() {
-    return $_SESSION['usuario'];
+function get_logged()
+{
+    return $_SESSION['user'];
 }
