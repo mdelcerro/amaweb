@@ -1830,17 +1830,17 @@
 			}
 
 				.widget.contact ul li a:before {
-					color: #f3f3f3;
+					color: #ffffff;
 					font-size: 1.75em;
 					line-height: 1.5em;
 				}
 
 				.widget.contact ul li a:hover {
-					background: #444444;
+					background: #000000;
 				}
 
 				.widget.contact ul li a:active {
-					background: #666666;
+					background: #000000;
 				}
 
 /* Wrappers */
@@ -1927,19 +1927,19 @@
 
 			#nav ul li > ul {
 				display: none;
+
 			}
 
-			#nav ul li:hover a, #nav ul li:hover span {
-				background: #fff;
-			}
-
-			#nav ul li.active a, #nav ul li.active span {
-				background: #fff;
+			#nav ul li.inactive a {
+				color: black;
+				text-transform: uppercase;
 			}
 
 			#nav ul li.current a {
-				background: #444;
-				color: #fff;
+				text-decoration: underline;
+				color: #4eb072;
+				text-transform: uppercase;
+
 			}
 
 	.dropotron {
@@ -2052,6 +2052,7 @@
 		color: #aaa;
 		padding: 4em 0 0 0;
 		text-align: center;
+		margin-top: -150px;
 	}
 
 		#copyright a {

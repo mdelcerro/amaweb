@@ -21,7 +21,7 @@ include "functions.php";
 
 						<!-- Logo -->
 						<div id="logo">
-							<a href="index.php"><img src="images/logo.png" alt="logo"></a>
+							<a href="index.php" ><img src="images/logo.png" alt="logo" width="100px"></a>
 						</div>
 
 
@@ -29,8 +29,8 @@ include "functions.php";
 							<nav id="nav">
 								<ul>
 									<li class="current"><a href="index.php">Cómo funciona</a></li>
-									<li><a href="registro.php">Registro</a></li>
-									<li><a href="acceso.php">Inicia sesión</a></li>
+									<li class="inactive"><a href="registro.php">Registro</a></li>
+									<li class="inactive"><a href="acceso.php">Inicia sesión</a></li>
 								</ul>
 							</nav>
 
@@ -60,13 +60,12 @@ include "functions.php";
 					<footer id="footer" class="container">
 								<!-- Contacto -->
 									<section class="widget contact last">
-										<h3>Contáctanos</h3>
+										<h3>Síguenos en redes</h3>
 										<ul>
 											<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
 											<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
 											<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
-											<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
-											<li><a href="#" class="icon fa-pinterest"><span class="label">Pinterest</span></a></li>
+											
 										</ul>
 									</section>
 
