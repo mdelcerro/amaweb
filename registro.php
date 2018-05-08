@@ -10,16 +10,46 @@ session_start();
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Actividad 10</title>
+   <title>Registro</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 </head>
 <body>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <div id="page-wrapper">
 
-    Usuario: <input type="text" name="user" value=""><br>
-    Correo electrónico: <input type="text" name="email" value=""><br>
-    Contraseña: <input type="password" name="password" value=""><br>
-    <br><input type="submit" name="submit" value="Registrar">
+            <!-- Header -->
+                <div id="header-wrapper">
+                    <header id="header" class="container">
+
+                        <!-- Logo -->
+                        <div id="logo">
+                            <a href="index.php" ><img src="images/logo.png" alt="logo" width="100px"></a>
+                        </div>
+
+
+                        <!-- Nav -->
+                            <nav id="nav">
+                                <ul>
+                                    <li class="inactive"><a href="index.php">Cómo funciona</a></li>
+                                    <li class="current"><a href="registro.php">Registro</a></li>
+                                    <li class="inactive"><a href="acceso.php">Inicia sesión</a></li>
+                                </ul>
+                            </nav>
+
+                    </header>
+                </div>
+<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
+    <h2 class="titleSection">REGISTRO</h2>
+    <label class="formText">Usuario:</label> <input  type="text" name="user" value="" placeholder=""><br>
+    <label class="formText">Correo electrónico:</label> <input  type="text" name="email" value=""><br>
+    <label class="formText">Contraseña:</label> <input  type="password" name="password" value=""><br>
+    <br>
+    <div align="center">
+    <input  type="submit" name="submit" value="Registrar">
+    </div>
 
 </form>
 </body>
@@ -34,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $error = false;
 
     if (empty($_POST["user"])) {
-        $userError = "<br><b style=\"color:red\">Introduce un usuario.</b><br />";
+        $userError = "<div style=\"text-align:center\"><br><b style=\"color:red\">Introduce un usuario.</b><br /></div>";
         echo $userError;
         $error = true;
     } else {
@@ -42,7 +72,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($_POST["email"])) {
-        $emailError = "<br><b style=\"color:red\">Introduce una dirección de correo electrónico.</b><br />";
+        $emailError = "<div style=\"text-align:center\"><br><b style=\"color:red\">Introduce una dirección de correo electrónico.</b><br /></div>";
         echo $emailError;
         $error = true;
     } else {
@@ -50,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($_POST["password"])) {
-        $passwordError = "<br><b style=\"color:red\">Introduce una contraseña.</b><br />";
+        $passwordError = "<div style=\"text-align:center\"><br><b style=\"color:red\">Introduce una contraseña.</b><br /></div>";
         echo $passwordError;
         $error = true;
     } else {

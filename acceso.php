@@ -1,4 +1,10 @@
+
+
+
+
+
 <?php
+
 
 include 'functions.php';
 
@@ -35,17 +41,56 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die();
     }
 }
+?>
 
+<!DOCTYPE html>
+<html>
+<head>
+   <title>Registro</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
+        <link rel="stylesheet" href="assets/css/main.css" />
+        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
+</head>
+<body>
+    <div id="page-wrapper">
+
+            <!-- Header -->
+                <div id="header-wrapper">
+                    <header id="header" class="container">
+
+                        <!-- Logo -->
+                        <div id="logo">
+                            <a href="index.php" ><img src="images/logo.png" alt="logo" width="100px"></a>
+                        </div>
+
+
+                        <!-- Nav -->
+                            <nav id="nav">
+                                <ul>
+                                    <li class="inactive"><a href="index.php">Cómo funciona</a></li>
+                                    <li class="inactive"><a href="registro.php">Registro</a></li>
+                                    <li class="current"><a href="acceso.php">Inicia sesión</a></li>
+                                </ul>
+                            </nav>
+
+                    </header>
+                </div>
+
+<?php
 if (!is_logged()) { // comprobamos que las variables de sesión estén vacías
     ?>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
-        <label>Usuario:</label><br/>
-        <input type="text" name="user"/><br/>
-        <label>Contraseña:</label><br/>
+        <label class="formText">Usuario:</label><br/>
+        <input  type="text" name="user"/><br/>
+        <label class="formText">Contraseña:</label><br/>
         <input type="password" name="password"/><br/>
+         <div align="center">
         <input type="submit" name="enviar" value="Login"/>
+    </div>
         <?php if ($error) {
-            echo "bad boy";
+            echo "<div style=\"text-align:center\"><br><b style=\"color:red\">Error en el login</b><br /></div>";
         } ?>
     </form>
     <?php
