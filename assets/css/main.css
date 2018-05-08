@@ -1474,11 +1474,18 @@
 	form textarea {
 		-webkit-appearance: none;
 		display: block;
-		width: 100%;
+		width: 75%;
+		margin-left: auto;
+		margin-right: auto;
 		border-radius: 8px;
 		border: solid 1px #eee;
 	}
-
+.formText {
+	padding-left: 12.5%;
+	font-weight: 500;
+	font-size: 18px;
+	margin-bottom: -3px;
+}
 		form input[type="text"]:focus,
 		form input[type="email"]:focus,
 		form input[type="password"]:focus,
@@ -1615,7 +1622,8 @@
 		-webkit-appearance: none;
 		position: relative;
 		display: inline-block;
-		background: #ea5e42;
+		text-align: center;
+		background: #4eb072;
 		color: #fff;
 		text-decoration: none;
 		border-radius: 6px;
@@ -1642,7 +1650,7 @@
 		input[type="reset"]:hover,
 		button:hover,
 		.button:hover {
-			background: #ea5e42;
+			background: #4eb072;
 		}
 
 		input[type="button"]:active,
@@ -1650,7 +1658,7 @@
 		input[type="reset"]:active,
 		button:active,
 		.button:active {
-			background: #ea5e42;
+			background: #4eb072;
 		}
 
 		input[type="button"].alt,
@@ -1693,6 +1701,7 @@
 /* List */
 
 	ul.default {
+
 		list-style: disc;
 		padding-left: 1em;
 	}
@@ -1942,6 +1951,11 @@
 
 			}
 
+			h2 {
+				text-align: center;
+				color: #4eb072;
+			}
+
 	.dropotron {
 		background: #fff;
 		letter-spacing: 0.025em;
@@ -2052,7 +2066,7 @@
 		color: #aaa;
 		padding: 4em 0 0 0;
 		text-align: center;
-		margin-top: -150px;
+		
 	}
 
 		#copyright a {
