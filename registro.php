@@ -1,6 +1,7 @@
 <?php
 
 include 'functions.php';
+include 'sendmail.php';
 
 //Llamamos a la función session-start para iniciar una nueva sesión
 session_start();
@@ -78,6 +79,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Cerrar conexión
         $conn->close();
 
+        $body = "Hola $user<br><br>
+        Ya puedes disfrutar de los servicios de AmaWeb<br><br>
+        Saludos";
+
+
+        sendEmail($email, "Registro completado", $body);
+
+        echo "Registro completado TODO redirect";
     }
 }
 

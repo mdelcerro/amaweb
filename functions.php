@@ -1,22 +1,13 @@
 <?php
 
+include "config.php";
+
 function connect()
 {
-    $servername = "localhost";
-    $username = "id5508088_amaweb";
-    $password = "123456";
-    $schema = "id5508088_amaweb";
-
-    //datos base de datos local
-    /*
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $schema = "id5508088_amaweb";
-    */
+    global $cf_db_password, $cf_db_schema, $cf_db_username, $cf_db_servername;
 
     // Conectar DB
-    $conn = new mysqli($servername, $username, $password);
+    $conn = new mysqli($cf_db_servername, $cf_db_username, $cf_db_password);
     mysqli_set_charset($conn, "utf8");
 
     // Comprobar conexión
@@ -24,9 +15,9 @@ function connect()
         die("<p style=\"color:red\">Fallo de conexión: </p><br>" . $conn->connect_error);
     }
     // Seleccionar bd
-    $sql = "USE " . $schema;
+    $sql = "USE " . $cf_db_schema;
     if ($conn->query($sql) === FALSE) {
-        die("<br><p style=\"color:red\">La BBDD " . $schema . " no pudo ser seleccionada: </p><br>" . $conn->error);
+        die("<br><p style=\"color:red\">La BBDD " . $cf_db_schema . " no pudo ser seleccionada: </p><br>" . $conn->error);
     }
 
     return $conn;
