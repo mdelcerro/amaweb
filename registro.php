@@ -47,6 +47,8 @@ session_start();
     <label class="formText">Usuario:</label> <input  type="text" name="user" value="" placeholder=""><br>
     <label class="formText">Correo electrónico:</label> <input  type="text" name="email" value=""><br>
     <label class="formText">Contraseña:</label> <input  type="password" name="password" value=""><br>
+    <label class="formText">Verifica contraseña:</label> <input  type="password" name="repassword" value=""><br>
+
     <br>
     <div align="center">
     <input  type="submit" name="submit" value="Registrar">
@@ -57,8 +59,8 @@ session_start();
 
 <?php
 
-$user = $email = $password = "";
-$userError = $emailError = $passwordError = "";
+$user = $email = $password = $repassword = "";
+$userError = $emailError = $passwordError = $repasswordError = "";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
@@ -88,6 +90,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = trim($_POST["password"]);
     }
 
+    if (empty($_POST["repassword"]) || ($_POST["password"]!=$_POST["repassword"])) {
+
+        $repasswordError = "<div style=\"text-align:center\"><br><b style=\"color:red\">Verifica la contraseña.</b><br /></div>";
+        echo $repasswordError;
+        $error = true;
+    } else {
+        $repassword = trim($_POST["repassword"]);
+    }
 
     if (!$error) {
 
