@@ -110,14 +110,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->close();
 
         $body = "Hola $user<br><br>
-        Ya puedes disfrutar de los servicios de AmaWeb<br><br>
-        Saludos";
+        ¡Bienvenido/a a Amaweb!<br><br>
+        Tu cuenta te da acceso a añadir y consultar todos los artículos que te interesan en cualquier momento, lugar y dispositivo.<br><br>
+        ¡Feliz RSS!<br><br>
+        El equipo de Amaweb";
 
 
-        sendEmail($email, "Registro completado", $body);
+        sendEmail($email, "Te has registrado en Amaweb", $body);
 
-        echo "Registro completado TODO redirect";
-    }
+        header('Location: index.php');
+            die();
+
+        }
 }
 
 ?>
