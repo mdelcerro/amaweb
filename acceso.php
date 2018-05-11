@@ -1,10 +1,4 @@
-
-
-
-
-
 <?php
-
 
 include 'functions.php';
 
