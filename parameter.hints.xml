@@ -1,0 +1,9 @@
+<application>
+  <component name="ParameterNameHintsSettings">
+    <blacklists>
+      <blacklist language="PHP">
+        <added pattern="\mysqli_result.fetch_array(resulttype)" />
+      </blacklist>
+    </blacklists>
+  </component>
+</application>
