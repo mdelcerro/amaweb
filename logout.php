@@ -1,13 +1,9 @@
 <?php
-include "functions.php";
 
-//Llamamos a la función session-start para iniciar una nueva sesión
 session_start();
+unset ($SESSION['usuario']);
+session_destroy();
 
-// comprobamos que se haya iniciado la sesión
-if(is_logged()) {
-    session_destroy();
+header('Location: http://localhost:8079/phpLogin/login.html');
 
-}
-
-header("Location: index.php");
+?>
