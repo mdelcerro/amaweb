@@ -7,56 +7,6 @@ include 'sendmail.php';
 session_start();
 
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-   <title>Registro</title>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
-        <link rel="stylesheet" href="assets/css/main.css" />
-        <!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
-</head>
-<body>
-    <div id="page-wrapper">
-
-            <!-- Header -->
-                <div id="header-wrapper">
-                    <header id="header" class="container">
-
-                        <!-- Logo -->
-                        <div id="logo">
-                            <a href="index.php" ><img src="images/logo.png" alt="logo" width="100px"></a>
-                        </div>
-
-
-                        <!-- Nav -->
-                            <nav id="nav">
-                                <ul>
-                                    <li class="inactive"><a href="index.php">Cómo funciona</a></li>
-                                    <li class="current"><a href="registro.php">Registro</a></li>
-                                    <li class="inactive"><a href="acceso.php">Inicia sesión</a></li>
-                                </ul>
-                            </nav>
-
-                    </header>
-                </div>
-<form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
-    <h2 class="titleSection">REGISTRO</h2>
-    <label class="formText">Usuario:</label> <input  type="text" name="user" value="" placeholder=""><br>
-    <label class="formText">Correo electrónico:</label> <input  type="text" name="email" value=""><br>
-    <label class="formText">Contraseña:</label> <input  type="password" name="password" value=""><br>
-    <label class="formText">Verifica contraseña:</label> <input  type="password" name="repassword" value=""><br>
-
-    <br>
-    <div align="center">
-    <input  type="submit" name="submit" value="Registrar">
-    </div>
-
-</form>
-</body>
-
 <?php
 
 $user = $email = $password = $repassword = "";
@@ -129,9 +79,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         sendEmail($email, "Te has registrado en Amaweb", $body);
 
         header('Location: index.php');
-            die();
+        die();
 
-        }
+    }
 }
 
 ?>
