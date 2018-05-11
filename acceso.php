@@ -1,34 +1,27 @@
-
-
-
-
-
 <?php
-
 
 include 'functions.php';
 
-//Llamamos a la función session-start para iniciar una nueva sesión
-session_start();
+
 
 $error = false;
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-    $pwd = null;
+    $pwd = $idusuario = null;
 
     if (empty($_POST['user']) || empty($_POST['password'])) {
         $error = true;
     } else {
 
         $conn = connect();
-        $sql = "SELECT password FROM usuarios WHERE usuario = ?";
+        $sql = "SELECT idusuario, password FROM usuarios WHERE usuario = ?";
 
         $stmt = $conn->prepare($sql);
 
         $stmt->bind_param('s', $_POST['user']);
         $stmt->execute();
-        $stmt->bind_result($pwd);
+        $stmt->bind_result($idusuario, $pwd);
         if (!$stmt->fetch() || $pwd != $_POST['password']) {
             $error = true;
         }
@@ -36,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $conn->close();
     }
     if (!$error) {
-        $_SESSION["user"] = $_POST['user'];
+        $_SESSION["user"] = $idusuario;
         header('Location: index.php');
         die();
     }
@@ -56,27 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div id="page-wrapper">
 
-            <!-- Header -->
-                <div id="header-wrapper">
-                    <header id="header" class="container">
-
-                        <!-- Logo -->
-                        <div id="logo">
-                            <a href="index.php" ><img src="images/logo.png" alt="logo" width="100px"></a>
-                        </div>
-
-
-                        <!-- Nav -->
-                            <nav id="nav">
-                                <ul>
-                                    <li class="inactive"><a href="index.php">Cómo funciona</a></li>
-                                    <li class="inactive"><a href="registro.php">Registro</a></li>
-                                    <li class="current"><a href="acceso.php">Inicia sesión</a></li>
-                                </ul>
-                            </nav>
-
-                    </header>
-                </div>
+        <?php draw_header();?>
 
 <?php
 if (!is_logged()) { // comprobamos que las variables de sesión estén vacías

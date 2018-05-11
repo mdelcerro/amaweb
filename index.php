@@ -16,26 +16,7 @@ include "functions.php";
 		<div id="page-wrapper">
 
 			<!-- Header -->
-				<div id="header-wrapper">
-					<header id="header" class="container">
-
-						<!-- Logo -->
-						<div id="logo">
-							<a href="index.php" ><img src="images/logo.png" alt="logo" width="100px"></a>
-						</div>
-
-
-						<!-- Nav -->
-							<nav id="nav">
-								<ul>
-									<li class="current"><a href="index.php">Cómo funciona</a></li>
-									<li class="inactive"><a href="registro.php">Registro</a></li>
-									<li class="inactive"><a href="acceso.php">Inicia sesión</a></li>
-								</ul>
-							</nav>
-
-					</header>
-				</div>
+            <?php draw_header();?>
 
 			<!-- Banner -->
 				<div id="banner-wrapper">
