@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div id="page-wrapper">
 
-        <?draw_header()?>
+        <?php draw_header();?>
 
 <?php
 if (!is_logged()) { // comprobamos que las variables de sesión estén vacías

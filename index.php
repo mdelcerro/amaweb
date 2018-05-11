@@ -16,7 +16,7 @@ include "functions.php";
 		<div id="page-wrapper">
 
 			<!-- Header -->
-            <?draw_header()?>
+            <?php draw_header();?>
 
 			<!-- Banner -->
 				<div id="banner-wrapper">

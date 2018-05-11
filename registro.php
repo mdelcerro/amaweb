@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
     <div id="page-wrapper">
 
-        <?draw_header()?>
+        <?php draw_header();?>
 <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
     <h2 class="titleSection">REGISTRO</h2>
     <label class="formText">Usuario:</label> <input  type="text" name="user" value="" placeholder=""><br>
