@@ -1,6 +1,8 @@
 <?php
 
 include "config.php";
+//Llamamos a la función session-start para iniciar una nueva sesión
+session_start();
 
 function connect()
 {
@@ -40,4 +42,59 @@ function validate_security()
 function get_logged()
 {
     return $_SESSION['user'];
+}
+
+function draw_header() {
+    if (is_logged()) {
+        draw_header_logged();
+    } else {
+        draw_header_logout();
+    }
+}
+
+function draw_header_logged() {
+    echo "<div id=\"header-wrapper\">
+        <header id=\"header\" class=\"container\">
+
+            <!-- Logo -->
+            <div id=\"logo\">
+                <a href=\"index.php\"><img src=\"images/logo.png\" alt=\"logo\" width=\"100px\"></a>
+            </div>
+
+
+            <!-- Nav -->
+            <nav id=\"nav\">
+                <ul>
+                    <li class=\"inactive\"><a href=\"index.php\">Cómo funciona</a></li>
+                    <li class=\"inactive\"><a href=\"#\">Rss</a></li>
+                    <li class=\"inactive\"><a href=\"perfil.php\">Perfil</a></li>
+                    <li class=\"inactive\"><a href=\"logout.php\">Salir</a></li>
+                </ul>
+            </nav>
+
+        </header>
+    </div>";
+}
+
+function draw_header_logout() {
+    echo "<div id=\"header-wrapper\">
+        <header id=\"header\" class=\"container\">
+
+            <!-- Logo -->
+            <div id=\"logo\">
+                <a href=\"index.php\"><img src=\"images/logo.png\" alt=\"logo\" width=\"100px\"></a>
+            </div>
+
+
+            <!-- Nav -->
+            <nav id=\"nav\">
+                <ul>
+                    <li class=\"inactive\"><a href=\"index.php\">Cómo funciona</a></li>
+                    <li class=\"inactive\"><a href=\"registro.php\">Registro</a></li>
+                    <li class=\"inactive\"><a href=\"acceso.php\">Inicia sesión</a></li>
+                </ul>
+            </nav>
+
+        </header>
+    </div>";
 }
