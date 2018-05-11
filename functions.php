@@ -66,7 +66,7 @@ function draw_header_logged() {
             <nav id=\"nav\">
                 <ul>
                     <li class=\"inactive\"><a href=\"index.php\">Cómo funciona</a></li>
-                    <li class=\"inactive\"><a href=\"#\">Rss</a></li>
+                    <li class=\"inactive\"><a href=\"panel-control.php\">RSS</a></li>
                     <li class=\"inactive\"><a href=\"perfil.php\">Perfil</a></li>
                     <li class=\"inactive\"><a href=\"logout.php\">Salir</a></li>
                 </ul>

@@ -3,9 +3,6 @@
 include 'functions.php';
 include 'sendmail.php';
 
-//Llamamos a la función session-start para iniciar una nueva sesión
-session_start();
-
 ?>
 <?php
 

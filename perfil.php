@@ -125,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     <script>
         function deleteUser() {
-            if (confirm("¿Seguro que quieres eliminar el usaurio?")) {
+            if (confirm("¿Seguro que quieres eliminar el usuario?")) {
                 document.location = './delete.php';
             }
         }
