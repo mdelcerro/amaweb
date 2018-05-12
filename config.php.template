@@ -5,7 +5,7 @@ $cf_email_username = '';
 $cf_email_password = '';
 
 // Set DB credentials
-$cf_db_servername = '';
-$cf_db_username = 'localhost';
-$cf_db_password = '';
+$cf_db_servername = 'localhost';
+$cf_db_username = 'id5508088_amaweb';
+$cf_db_password = 'amaweb444';
 $cf_db_schema = 'id5508088_amaweb';
