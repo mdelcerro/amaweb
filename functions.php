@@ -7,10 +7,20 @@ session_start();
 function connect()
 {
     global $cf_db_password, $cf_db_schema, $cf_db_username, $cf_db_servername;
-
+/*
     // Conectar DB
     $conn = new mysqli($cf_db_servername, $cf_db_username, $cf_db_password);
     mysqli_set_charset($conn, "utf8");
+*/
+    $servidor="localhost";
+    $usuario="id5508088_amaweb";
+    $password="amaweb444";
+    $bbdd="id5508088_amaweb";
+    $conn = mysqli_connect($servidor, $usuario, $password, $bbdd) or die ("No se ha podido establecer la conexión");
+    
+    mysqli_query($conn, "SET NAMES 'utf8' ");
+
+
 
     // Comprobar conexión
     if ($conn->connect_error) {
