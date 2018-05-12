@@ -2,7 +2,7 @@
 
 include 'functions.php';
 
-
+session_start();
 
 $error = false;
 
@@ -15,8 +15,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     } else {
 
         $conn = connect();
-        $sql = "SELECT idusuario, password FROM usuarios WHERE usuario = ?";
-
+        //$sql = "SELECT idusuario, password FROM usuarios WHERE usuario = ?";
+        $sql = "SELECT usuario, password FROM usuarios WHERE usuario = ?";
         $stmt = $conn->prepare($sql);
 
         $stmt->bind_param('s', $_POST['user']);
@@ -30,6 +30,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
     if (!$error) {
         $_SESSION["user"] = $idusuario;
+        $_SESSION['loggedin'] = true;
+        $_SESSION['start'] = time();
+        $_SESSION['expire'] = $_SESSION['start'] + (5 * 60);
+
         header('Location: index.php');
         die();
     }
