@@ -5,9 +5,9 @@ session_start();
 <?php
 
 $host_db = "localhost";
-$user_db = "id5724689_vicuser";
+$user_db = "id5508088_amaweb";
 $pass_db = "amaweb444";
-$db_name = "id5724689_vic";
+$db_name = "id5508088_amaweb";
 $tbl_name = "usuarios";
 
 $conexion = new mysqli($host_db, $user_db, $pass_db, $db_name);
@@ -47,7 +47,7 @@ if ($result->num_rows > 0) {
  } else {
    echo "Username o Password están incorrectos.";
 
-   echo "<br><a href='login.html'>Volver a Intentarlo</a>";
+   echo "<br><a href='acceso.php'>Volver a Intentarlo</a>";
  }
  mysqli_close($conexion); 
  ?>
