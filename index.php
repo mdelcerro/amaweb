@@ -1,5 +1,6 @@
 <?php
 include "functions.php";
+include "includes/conexion.php";
 ?>
 
 <!DOCTYPE HTML>
@@ -26,16 +27,43 @@ include "functions.php";
 								<h2>Hola. Bienvenido a Amaweb.</h2>
 								<p>La aplicación para concentrar todos los artículos que te interesan.</p>
 							</div>
-							<div class="5u 12u(medium)">
+							
+					
+				
+				<div>
+				    <?php 
+				      $sql="SELECT titulo, enlace, usuario, fecha from usuarios inner join rss on usuarios.idusuario=rss.idusuario order by rss.fecha DESC";
+                      $exe=mysqli_query($conexion, $sql) or die ("No se puede realizar la conexion");
+                      ?>
+                        
+                        <table id='tabla' width="800" border="2">
+                            <caption>NOTICIAS PUBLICADAS</caption><br /><br />
+                           
+                        <th>Titulo</th><th>Enlace</th><th>Usuario</th><th>Fecha publicación</th>
+                     <?php      
+	                	while($rgto = mysqli_fetch_row($exe))
+	                	{
+	            		?>
+                   <tr>
+                	<td><?php echo $rgto[0];?></td>
+                	<td><?php echo $rgto[1];?></td>
+                   <td><?php echo $rgto[2];?></td>
+                    <td><?php echo $rgto[3];?></td>
+                    </tr>
+				   <?php } ?>
+				</div>
+				
+				
+				<div class="5u 12u(medium)">
 								<ul>
 									<li><a href="registro.php" class="button big icon fa-arrow-circle-right">Ok, registrarme</a></li>
 									<li><a href="#" class="button alt big icon fa-question-circle">Más info</a></li>
 								</ul>
 							</div>
-						</div>
-					</div>
-				</div>
-
+					
+            </div>
+         </div>
+    	</div>
 			<!-- Footer -->
 				<div id="footer-wrapper">
 					<footer id="footer" class="container">
