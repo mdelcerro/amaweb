@@ -10,9 +10,9 @@ session_start();
 <body>
 	<form action="r_formInsertaNews.php" method="post" id="entra" name="form_inserta" align="center">
 		
-			Título de la noticia:  <input name="titulo" id="entra" type="text" size="60"  required><br/><br/>
+			Título de la noticia:  <input name="titulo" id="entra" type="text" size="120"  required><br/><br/>
 
-			Enlace:  <input name="enlace" id="entra" type="text" size="100"  required><br/><br/>
+			Enlace:  <input name="enlace" id="entra" type="text" size="120"  required><br/><br/>
 
         <!--	Usuario:  <input name="user" id="entra" type="text" size="20"  required><br/><br/> -->
            
