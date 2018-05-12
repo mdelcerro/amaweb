@@ -16,7 +16,7 @@ $stmt = $conn->prepare($sql);
 $stmt->bind_param('d', $id);
 
 if ($stmt->execute() === FALSE) {
-    die("<br><p style=\"color:red\">No se ha podido borrar al usuario: </p><br>" . $conn->error);
+    die("<br><p style=\"color:red\">No se ha podido borrar el usuario: </p><br>" . $conn->error);
 }
 // Cerrar sentencia
 $stmt->close();
