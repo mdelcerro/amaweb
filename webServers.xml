@@ -4,6 +4,9 @@
       <webServer id="ffc4dfe0-c79b-4799-ab7b-2f76bc22e716" name="repaso" url="http://localhost">
         <fileTransfer port="0" accessType="LOCAL" />
       </webServer>
+      <webServer id="fbcb9f8a-23c5-4493-8d1c-9d68732563ac" name="Ifap" url="http://local/IfapCurso/">
+        <fileTransfer port="0" mountedRoot="E:\IfapCurso" accessType="MOUNT" />
+      </webServer>
     </option>
   </component>
 </application>
