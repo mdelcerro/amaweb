@@ -1,4 +1,9 @@
 <application>
+  <component name="GithubAccounts">
+    <account id="afe86653-af1e-4040-98e9-3af2120de8f6" name="aoleagagoitia@fp.uoc.edu">
+      <server host="github.com" />
+    </account>
+  </component>
   <component name="GithubSettings">
     <option name="LOGIN" value="aoleagagoitia" />
     <option name="AUTH_TYPE" value="BASIC" />
