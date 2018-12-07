@@ -1,0 +1,11 @@
+<application>
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="dafe49b9-0ad1-4d06-8353-c3cacb77f265" name="P7" url="https://p7oleaga.000webhostapp.com">
+        <fileTransfer host="files.000webhost.com" port="21">
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</application>
